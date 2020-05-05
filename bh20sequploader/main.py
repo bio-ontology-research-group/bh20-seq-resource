@@ -13,9 +13,9 @@ sys.path.insert(0,'.')
 from bh20sequploader.qc_metadata import qc_metadata
 from bh20sequploader.qc_fasta import qc_fasta
 
-ARVADOS_API_HOST='lugli.arvadosapi.com'
-ARVADOS_API_TOKEN='2fbebpmbo3rw3x05ueu2i6nx70zhrsb1p22ycu3ry34m4x4462'
-UPLOAD_PROJECT='lugli-j7d0g-n5clictpuvwk8aa'
+ARVADOS_API_HOST='cborg.cbrc.kaust.edu.sa'
+ARVADOS_API_TOKEN='4jto18ugw7ux8a27yqgcdlroi672z4upskzpgc0ic9wkzb4784'
+UPLOAD_PROJECT='cborg-j7d0g-zcdm4l3ts28ioqo'
 
 def main():
     parser = argparse.ArgumentParser(description='Upload SARS-CoV-19 sequences for analysis')
