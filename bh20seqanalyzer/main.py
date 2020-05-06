@@ -209,7 +209,7 @@ def main():
     parser.add_argument('--uploader-project', type=str, default='cborg-j7d0g-nyah4ques5ww7pk', help='')
     parser.add_argument('--pangenome-analysis-project', type=str, default='cborg-j7d0g-o9fxjbucyzfonj1', help='')
     parser.add_argument('--fastq-project', type=str, default='cborg-j7d0g-xnf1wpc0d82u6g0', help='')
-    parser.add_argument('--validated-project', type=str, default='', help='')
+    parser.add_argument('--validated-project', type=str, default='cborg-j7d0g-zcdm4l3ts28ioqo', help='')
     parser.add_argument('--workflow-def-project', type=str, default='cborg-j7d0g-3yx09joxonkhbru', help='')
 
     parser.add_argument('--pangenome-workflow-uuid', type=str, default='cborg-7fd4e-7zy0h7uhizql6vb', help='')
