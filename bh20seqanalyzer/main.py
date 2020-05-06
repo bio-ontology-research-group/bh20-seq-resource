@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import arvados
 import arvados.collection
@@ -257,3 +259,8 @@ def main():
                                 args.latest_result_collection)
 
         time.sleep(15)
+
+
+if __name__ == '__main__':
+    main()
+    
