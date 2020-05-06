@@ -204,16 +204,16 @@ def upload_schema(api, workflow_def_project):
 
 def main():
     parser = argparse.ArgumentParser(description='Analyze collections uploaded to a project')
-    parser.add_argument('--uploader-project', type=str, default='lugli-j7d0g-n5clictpuvwk8aa', help='')
-    parser.add_argument('--pangenome-analysis-project', type=str, default='lugli-j7d0g-y4k4uswcqi3ku56', help='')
-    parser.add_argument('--fastq-project', type=str, default='lugli-j7d0g-xcjxp4oox2u1w8u', help='')
-    parser.add_argument('--validated-project', type=str, default='lugli-j7d0g-5ct8p1i1wrgyjvp', help='')
-    parser.add_argument('--workflow-def-project', type=str, default='lugli-j7d0g-5hswinmpyho8dju', help='')
+    parser.add_argument('--uploader-project', type=str, default='cborg-j7d0g-nyah4ques5ww7pk', help='')
+    parser.add_argument('--pangenome-analysis-project', type=str, default='cborg-j7d0g-o9fxjbucyzfonj1', help='')
+    parser.add_argument('--fastq-project', type=str, default='cborg-j7d0g-xnf1wpc0d82u6g0', help='')
+    parser.add_argument('--validated-project', type=str, default='', help='')
+    parser.add_argument('--workflow-def-project', type=str, default='cborg-j7d0g-3yx09joxonkhbru', help='')
 
-    parser.add_argument('--pangenome-workflow-uuid', type=str, default='lugli-7fd4e-mqfu9y3ofnpnho1', help='')
-    parser.add_argument('--fastq-workflow-uuid', type=str, default='lugli-7fd4e-2zp9q4jo5xpif9y', help='')
+    parser.add_argument('--pangenome-workflow-uuid', type=str, default='cborg-7fd4e-7zy0h7uhizql6vb', help='')
+    parser.add_argument('--fastq-workflow-uuid', type=str, default='cborg-7fd4e-zzk6vpo8d1k9zea', help='')
 
-    parser.add_argument('--latest-result-collection', type=str, default='lugli-4zz18-z513nlpqm03hpca', help='')
+    parser.add_argument('--latest-result-collection', type=str, default='cborg-4zz18-7hurjl2943atdoz', help='')
     parser.add_argument('--kickoff', action="store_true")
     args = parser.parse_args()
 
