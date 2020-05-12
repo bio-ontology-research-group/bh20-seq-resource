@@ -9,12 +9,13 @@ import urllib.request
 import socket
 import getpass
 import sys
+import os
 sys.path.insert(0,'.')
 from bh20sequploader.qc_metadata import qc_metadata
 from bh20sequploader.qc_fasta import qc_fasta
 
-ARVADOS_API_HOST='cborg.cbrc.kaust.edu.sa'
-ARVADOS_API_TOKEN='4jto18ugw7ux8a27yqgcdlroi672z4upskzpgc0ic9wkzb4784'
+ARVADOS_API_HOST=os.environ.get('ARVADOS_API_HOST', 'cborg.cbrc.kaust.edu.sa')
+ARVADOS_API_TOKEN=os.environ.get('ARVADOS_API_TOKEN', '')
 UPLOAD_PROJECT='cborg-j7d0g-zcdm4l3ts28ioqo'
 
 def main():
