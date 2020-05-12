@@ -1,4 +1,4 @@
-PREFIX : <https://raw.githubusercontent.com/arvados/bh20-seq-resource/master/bh20sequploader/bh20seq-shex.rdf#>
+PREFIX : <https://raw.githubusercontent.com/bio-ontology-research-group/bh20-seq-resource/master/bh20sequploader/bh20seq-shex.rdf#>
 PREFIX MainSchema: <http://biohackathon.org/bh20-seq-schema#MainSchema/>
 PREFIX hostSchema: <http://biohackathon.org/bh20-seq-schema#hostSchema/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
