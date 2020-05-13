@@ -10,6 +10,7 @@ import socket
 import getpass
 import sys
 import os
+import json
 sys.path.insert(0,'.')
 from bh20sequploader.qc_metadata import qc_metadata
 from bh20sequploader.qc_fasta import qc_fasta
@@ -78,7 +79,7 @@ def main():
     result = col.save_new(owner_uuid=UPLOAD_PROJECT, name="%s uploaded by %s from %s" %
                  (seqlabel, properties['upload_user'], properties['upload_ip']),
                  properties=properties, ensure_unique_name=True)
-    print(col.api_response())
+    print(json.dumps(col.api_response()))
 
 if __name__ == "__main__":
     main()
