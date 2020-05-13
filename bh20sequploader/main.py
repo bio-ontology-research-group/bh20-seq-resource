@@ -25,6 +25,7 @@ def main():
     parser.add_argument("--validate", action="store_true", help="Dry run, validate only")
     args = parser.parse_args()
 
+    print(ARVADOS_API_HOST, ARVADOS_API_TOKEN)
     api = arvados.api(host=ARVADOS_API_HOST, token=ARVADOS_API_TOKEN, insecure=True)
 
     try:
@@ -55,7 +56,6 @@ def main():
     print("Reading metadata")
     with col.open("metadata.yaml", "w") as f:
         r = args.metadata.read(65536)
-        print(r[0:20])
         while r:
             f.write(r)
             r = args.metadata.read(65536)
@@ -75,11 +75,10 @@ def main():
         "upload_user": "%s@%s" % (username, socket.gethostname())
     }
 
-    col.save_new(owner_uuid=UPLOAD_PROJECT, name="%s uploaded by %s from %s" %
+    result = col.save_new(owner_uuid=UPLOAD_PROJECT, name="%s uploaded by %s from %s" %
                  (seqlabel, properties['upload_user'], properties['upload_ip']),
                  properties=properties, ensure_unique_name=True)
-
-    print("Done")
+    print(col.api_response())
 
 if __name__ == "__main__":
     main()
