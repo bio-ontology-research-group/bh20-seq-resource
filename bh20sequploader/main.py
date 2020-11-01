@@ -11,13 +11,16 @@ import getpass
 import sys
 import os
 import json
+import requests
 sys.path.insert(0,'.')
-from bh20sequploader.qc_metadata import qc_metadata
+from bh20sequploader.qc_metadata import qc_metadata, to_rdf
 from bh20sequploader.qc_fasta import qc_fasta
 
 ARVADOS_API_HOST=os.environ.get('ARVADOS_API_HOST', 'cborg.cbrc.kaust.edu.sa')
 ARVADOS_API_TOKEN=os.environ.get('ARVADOS_API_TOKEN', '')
 UPLOAD_PROJECT='cborg-j7d0g-zcdm4l3ts28ioqo'
+ARVADOS_COL_BASE_URI='https://workbench.cborg.cbrc.kaust.edu.sa/collections/'
+BORG_COVID_API='https://upload.cborg.cbrc.kaust.edu.sa/api/upload/'
 
 def main():
     parser = argparse.ArgumentParser(description='Upload SARS-CoV-19 sequences for analysis')
@@ -79,7 +82,18 @@ def main():
     result = col.save_new(owner_uuid=UPLOAD_PROJECT, name="%s uploaded by %s from %s" %
                  (seqlabel, properties['upload_user'], properties['upload_ip']),
                  properties=properties, ensure_unique_name=True)
-    print(json.dumps(col.api_response()))
+    response = col.api_response()
+
+    res_uri = ARVADOS_COL_BASE_URI + response['uuid']
+    graph = to_rdf(res_uri, args.metadata.name)
+
+    with col.open('metadata.rdf', "wb") as f:
+        f.write(graph.serialize(format="pretty-xml"))
+    col.save()
+
+    url = BORG_COVID_API + response['uuid'] + "/metadata"
+    print(requests.post(url))
+    print(json.dumps(response))
 
 if __name__ == "__main__":
     main()
